@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karur's Home bakes</title>
+
+    <!-- FAVICON (Using your logo image 20841.jpg) -->
+    <link rel="icon" type="image/jpeg" href="20841.jpg">
+
+    <!-- GOOGLE FONTS -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- FONT AWESOME ICONS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+            scroll-behavior:smooth;
+        }
+
+        body{
+            background:#fff8f5;
+            overflow-x:hidden;
+            color:#2d1b1b;
+        }
+
+        /* BACKGROUND EFFECTS */
+        .bg1,.bg2,.bg3{
+            position:fixed;
+            border-radius:50%;
+            filter:blur(120px);
+            z-index:-2;
+            animation:float 8s infinite alternate ease-in-out;
+        }
+
+        .bg1{ width:300px; height:300px; background:#ffafcc; top:-100px; left:-100px; }
+        .bg2{ width:350px; height:350px; background:#ffd6a5; bottom:-120px; right:-120px; animation-duration:10s; }
+        .bg3{ width:250px; height:250px; background:#cdb4db; top:40%; left:40%; animation-duration:6s; }
+
+        @keyframes float{
+            0%{transform:translateY(0px);}
+            100%{transform:translateY(30px);}
+        }
+
+        /* NAVBAR (Centered Style inspired by 20843.jpg) */
+        nav{
+            width:100%;
+            padding:20px 8%;
+            display:flex;
+            flex-direction: column;
+            align-items:center;
+            justify-content: center;
+            position:sticky;
+            top:0;
+            z-index:999;
+            background:rgba(255,255,255,0.85);
+            backdrop-filter:blur(15px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            gap: 12px;
+        }
+
+        .nav-logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .nav-logo-img {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #ff9e00;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .logo{
+            font-size:28px;
+            font-weight:800;
+            background:linear-gradient(to right,#ff4d6d,#ff9e00);
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+            letter-spacing: 0.5px;
+        }
+
+        nav ul{
+            display:flex;
+            gap:32px;
+            list-style:none;
+            margin-top: 5px;
+        }
+
+        nav ul li a{
+            text-decoration:none;
+            font-weight:600;
+            color:#4a3535;
+            transition:0.3s;
+            font-size: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        nav ul li a:hover{
+            color:#ff4d6d;
+        }
+
+        /* HERO SECTION */
+        .hero{
+            min-height:85vh;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:60px 8%;
+            gap:60px;
+        }
+
+        .hero-text{
+            flex:1;
+            animation:fadeUp 1s ease;
+        }
+
+        .hero-text h1{
+            font-size:72px;
+            line-height:1.1;
+            margin-bottom:25px;
+        }
+
+        .hero-text span{
+            background:linear-gradient(to right,#ff4d6d,#ff9e00);
+            -webkit-background-clip:text;
+            -webkit-text-fill-color:transparent;
+        }
+
+        .hero-text p{
+            font-size:18px;
+            line-height:1.8;
+            color:#6b4f4f;
+            margin-bottom:30px;
+        }
+
+        .hero-buttons{
+            display:flex;
+            gap:20px;
+            flex-wrap:wrap;
+        }
+
+        .btn{
+            padding:15px 32px;
+            border:none;
+            border-radius:50px;
+            background:linear-gradient(45deg,#ff4d6d,#ff9e00);
+            color:white;
+            font-weight:700;
+            cursor:pointer;
+            text-decoration:none;
+            transition:0.4s;
+            box-shadow:0 10px 25px rgba(255,77,109,0.3);
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn:hover{
+            transform:translateY(-5px) scale(1.03);
+        }
+
+        .btn-outline{
+            background:white;
+            color:#ff4d6d;
+            border:2px solid #ff4d6d;
+            box-shadow: none;
+        }
+
+        .hero-image{
+            flex:1;
+            display:flex;
+            justify-content:center;
+        }
+
+        .hero-image img{
+            width:100%;
+            max-width:420px;
+            border-radius:35px;
+            animation:heroFloat 4s infinite ease-in-out;
+            box-shadow:0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        @keyframes heroFloat{
+            0%{transform:translateY(0px);}
+            50%{transform:translateY(-18px);}
+            100%{transform:translateY(0px);}
+        }
+
+        @keyframes fadeUp{
+            from{ opacity:0; transform:translateY(40px); }
+            to{ opacity:1; transform:translateY(0); }
+        }
+
+        /* OFFER BAR */
+        .offer{
+            padding:18px;
+            text-align:center;
+            font-weight:700;
+            background:linear-gradient(45deg,#ff4d6d,#ff9e00);
+            color:white;
+            font-size:18px;
+        }
+
+        /* GENERAL SECTION STYLE */
+        .section{
+            padding:90px 8%;
+        }
+
+        .section-title{
+            font-size:46px;
+            text-align:center;
+            margin-bottom:15px;
+        }
+
+        .section-sub{
+            text-align:center;
+            color:#6b4f4f;
+            margin-bottom:55px;
+        }
+
+        /* GRID SYSTEM */
+        .grid{
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:30px;
+        }
+
+        /* CARDS FOR FLAVOURS & CAKES */
+        .card{
+            background:rgba(255,255,255,0.7);
+            backdrop-filter:blur(16px);
+            padding:20px;
+            border-radius:30px;
+            overflow:hidden;
+            transition:0.4s;
+            box-shadow:0 10px 25px rgba(0,0,0,0.06);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .card:hover{
+            transform:translateY(-10px);
+            box-shadow:0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        .card img{
+            width:100%;
+            height:240px;
+            object-fit:cover;
+            border-radius:22px;
+            transition:0.4s;
+        }
+
+        .card:hover img{
+            transform:scale(1.03);
+        }
+
+        .card h3{
+            margin-top:18px;
+            font-size:24px;
+        }
+
+        .card p{
+            margin-top:8px;
+            line-height:1.6;
+            color:#6b4f4f;
+            font-size: 15px;
+        }
+
+        .price{
+            margin-top:15px;
+            font-size:24px;
+            font-weight:700;
+            color:#ff4d6d;
+        }
+
+        /* INPUTS & ORDER SECTIONS */
+        .order-section{
+            margin-top:18px;
+            display:flex;
+            flex-direction:column;
+            gap:12px;
+        }
+
+        .order-section input,
+        .order-section select{
+            padding:14px;
+            border:1px solid #eee;
+            border-radius:14px;
+            outline:none;
+            background:white;
+            font-size: 14px;
+        }
+
+        .order-btn{
+            padding:15px;
+            border:none;
+            border-radius:16px;
+            background:linear-gradient(45deg,#ff4d6d,#ff9e00);
+            color:white;
+            font-weight:700;
+            cursor:pointer;
+            transition:0.3s;
+            box-shadow: 0 5px 15px rgba(255,77,109,0.2);
+        }
+
+        .order-btn:hover{
+            transform:scale(1.02);
+            opacity: 0.95;
+        }
+
+        /* DECORATIONS SECTION */
+        .decor-grid{
+            display:grid;
+            grid-template-columns:repeat(3,1fr);
+            gap:30px;
+        }
+
+        .decor-card{
+            background:white;
+            padding:20px;
+            border-radius:28px;
+            transition:0.4s;
+            box-shadow:0 10px 25px rgba(0,0,0,0.06);
+        }
+
+        .decor-card:hover{
+            transform:translateY(-10px);
+        }
+
+        .decor-card img{
+            width:100%;
+            height:240px;
+            object-fit:cover;
+            border-radius:20px;
+        }
+
+        /* CUSTOMIZE SECTION */
+        .custom-box{
+            max-width:760px;
+            margin:auto;
+            background:rgba(255,255,255,0.8);
+            backdrop-filter:blur(16px);
+            padding:40px;
+            border-radius:30px;
+            display:flex;
+            flex-direction:column;
+            gap:18px;
+            box-shadow:0 10px 25px rgba(0,0,0,0.06);
+        }
+
+        .custom-box input,
+        .custom-box select,
+        .custom-box textarea{
+            padding:15px;
+            border:1px solid #eee;
+            border-radius:15px;
+            outline:none;
+            background:white;
+            font-size: 15px;
+        }
+
+        .custom-box textarea{
+            height:120px;
+            resize:none;
+        }
+
+        /* PAYMENT SECTION */
+        .payment-box{
+            max-width:500px;
+            margin:auto;
+            background:white;
+            padding:35px;
+            border-radius:25px;
+            text-align:center;
+            box-shadow:0 10px 25px rgba(0,0,0,0.06);
+        }
+
+        .qr-img{
+            width: 280px;
+            height:280px;
+            object-fit:contain;
+            display:block;
+            margin:20px auto;
+            border-radius:15px;
+            border: 1px solid #eee;
+        }
+
+        .payment-name, .payment-number, .payment-support{
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #3b2a2a;
+        }
+
+        .payment-note{
+            font-size: 13px;
+            color: #666;
+            margin: 15px 0 8px 0;
+        }
+
+        .payment-btn{
+            display: block;
+            padding: 12px;
+            background: #fdf0f0;
+            color: #ff4d6d;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 700;
+            margin-top: 10px;
+            transition: 0.3s;
+            border: 1px dashed #ff4d6d;
+        }
+
+        .payment-btn:hover{
+            background: #ff4d6d;
+            color: white;
+        }
+
+        /* LOCATION SECTION */
+        .location-box{
+            max-width:800px;
+            margin:auto;
+            background:white;
+            padding:40px;
+            border-radius:30px;
+            text-align:center;
+            box-shadow:0 10px 25px rgba(0,0,0,0.06);
+        }
+
+        .location-box p {
+            font-size: 17px;
+            line-height: 1.6;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        .owner{
+            margin-top:30px;
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            gap:15px;
+            text-align: left;
+        }
+
+        .owner img{
+            width:90px;
+            height:90px;
+            border-radius:50%;
+            object-fit:cover;
+            border:4px solid #ff4d6d;
+        }
+
+        /* FOOTER */
+        footer{
+            padding:45px;
+            text-align:center;
+            background:white;
+            margin-top:60px;
+            border-top: 1px solid #eee;
+        }
+
+        .footer-logo-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            border: 2px solid #ff4d6d;
+        }
+
+        .socials{
+            margin-top:20px;
+            display:flex;
+            justify-content:center;
+            gap:20px;
+        }
+
+        .socials a{
+            font-size:26px;
+            color:#ff4d6d;
+            transition:0.3s;
+        }
+
+        .socials a:hover{
+            transform:translateY(-5px);
+            color: #ff9e00;
+        }
+
+        /* RESPONSIVE DESIGN */
+        @media(max-width:1000px){
+            .grid, .decor-grid{
+                grid-template-columns:repeat(2,1fr);
+            }
+            .hero{
+                flex-direction:column;
+                text-align:center;
+                padding: 40px 5%;
+            }
+            .hero-buttons{
+                justify-content:center;
+            }
+            .hero-text h1{
+                font-size:52px;
+            }
+        }
+
+        @media(max-width:700px){
+            .grid, .decor-grid{
+                grid-template-columns:1fr;
+            }
+            nav ul{
+                display:none;
+            }
+            .hero-text h1{
+                font-size:40px;
+            }
+            .section-title{
+                font-size:34px;
+            }
+            .section{
+                padding: 60px 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ANIMATED BACKGROUNDS -->
+    <div class="bg1"></div>
+    <div class="bg2"></div>
+    <div class="bg3"></div>
+
+    <!-- NAVBAR NAVIGATION (Centered with 20841.jpg Logo) -->
+    <nav>
+        <div class="nav-logo-container">
+            <img src="karur home bakes.png" alt="Logo" class="nav-logo-img">
+            <div class="logo">Karur's Home bakes</div>
+        </div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#flavours">Flavours</a></li>
+            <li><a href="#cakes">Cakes</a></li>
+            <li><a href="#decorations">Decorations</a></li>
+            <li><a href="#custom">Customize</a></li>
+            <li><a href="#payment">Payment</a></li>
+            <li><a href="#location">Location</a></li>
+        </ul>
+    </nav>
+
+    <!-- 1. HOME (HERO) SECTION -->
+    <section class="hero" id="home">
+        <div class="hero-text">
+            <h1>Luxury <span>Homemade Cakes</span></h1>
+            <p>Premium trendy cakes and luxury birthday decorations for every celebration in Karur. Fresh cakes • Balloon setups • Baby shower themes • Surprise decorations.</p>
+            <div class="hero-buttons">
+                <a href="#cakes" class="btn">Explore Cakes</a>
+                <a href="#decorations" class="btn btn-outline">View Decorations</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="karur home bakes.png" alt="Karur Home Bakes Banner">
+        </div>
+    </section>
+
+    <!-- SPECIAL OFFER BAR -->
+    <div class="offer">🎉 Free Candles & Birthday Cap For Orders Above ₹999</div>
+
+    <!-- 2. FLAVOURS SECTION -->
+    <section class="section" id="flavours">
+        <h2 class="section-title">Our Flavours 🍓</h2>
+        <p class="section-sub">Choose your favourite delicious flavour</p>
+        
+        <div class="grid">
+            <div class="card">
+                <img src="mango.png" alt="Mango Cake">
+                <h3>Mango Cake</h3>
+                <p>Fresh mango creamy layered cake.</p>
+            </div>
+            <div class="card">
+                <img src="strawberry 2.png" alt="Strawberry Cake">
+                <h3>Strawberry Cake</h3>
+                <p>Soft strawberry flavour cake.</p>
+            </div>
+            <div class="card">
+                <img src="strawberry.png" alt="Blueberry Cake">
+                <h3>Blueberry Cake</h3>
+                <p>Premium blueberry creamy cake.</p>
+            </div>
+            <div class="card">
+                <img src="vennila.png" alt="Vanilla Cake">
+                <h3>Vanilla Cake</h3>
+                <p>Classic vanilla fresh cream cake.</p>
+            </div>
+            <div class="card">
+                <img src="chocolate.png" alt="Chocolate Cake">
+                <h3>Chocolate Cake</h3>
+                <p>Rich chocolate creamy cake.</p>
+            </div>
+            <div class="card">
+                <img src="pineaaple.png" alt="Pineapple Cake">
+                <h3>Pineapple Cake</h3>
+                <p>Luxury dreamy special flavour cake.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. TRENDING CAKES SECTION -->
+    <section class="section" id="cakes">
+        <h2 class="section-title">Trending Cakes 🎂</h2>
+        <p class="section-sub">Beautiful cakes for every special celebration</p>
+
+        <div class="grid">
+            <!-- Cake 1 -->
+            <div class="card">
+                <img src="Black forest.png" alt="Black Forest">
+                <h3>Black Forest Cake</h3>
+                <p>Chocolate sponge layered with whipped cream.</p>
+                <div class="price">₹700 / KG</div>
+                <div class="order-section">
+                    <input type="text" id="name1" placeholder="Enter Name">
+                    <input type="text" id="text1" placeholder="Enter Text On Cake">
+                    <select id="kg1">
+                        <option>0.5 KG</option>
+                        <option>1 KG</option>
+                        <option>2 KG</option>
+                    </select>
+                    <button class="order-btn" onclick="sendOrder('Black Forest Cake', name1.value, text1.value, kg1.value)">Order Now</button>
+                </div>
+            </div>
+
+            <!-- Cake 2 -->
+            <div class="card">
+                <img src="white forest.png" alt="White Forest">
+                <h3>White Forest Cake</h3>
+                <p>Premium white chocolate creamy cake.</p>
+                <div class="price">₹700 / KG</div>
+                <div class="order-section">
+                    <input type="text" id="name2" placeholder="Enter Name">
+                    <input type="text" id="text2" placeholder="Enter Text On Cake">
+                    <select id="kg2">
+                        <option>0.5 KG</option>
+                        <option>1 KG</option>
+                        <option>2 KG</option>
+                    </select>
+                    <button class="order-btn" onclick="sendOrder('White Forest Cake', name2.value, text2.value, kg2.value)">Order Now</button>
+                </div>
+            </div>
+
+            <!-- Cake 3 -->
+            <div class="card">
+                <img src="redwelwet  cake.png" alt="Red Velvet">
+                <h3>Red Velvet Cake</h3>
+                <p>Luxury red velvet creamy cake.</p>
+                <div class="price">₹1100 / KG</div>
+                <div class="order-section">
+                    <input type="text" id="name3" placeholder="Enter Name">
+                    <input type="text" id="text3" placeholder="Enter Text On Cake">
+                    <select id="kg3">
+                        <option>0.5 KG</option>
+                        <option>1 KG</option>
+                        <option>2 KG</option>
+                    </select>
+                    <button class="order-btn" onclick="sendOrder('Red Velvet Cake', name3.value, text3.value, kg3.value)">Order Now</button>
+                </div>
+            </div>
+
+           <!-- Cake 4 -->
+            <div class="card">
+                <img src="cake 2.png" alt="Cheese Cake">
+                <h3>Cheese Cake</h3>
+                <p>Rich creamy cheese cake special design.</p>
+                <div class="price">₹1200 / KG</div>
+                <div class="order-section">
+                    <input type="text" id="name4" placeholder="Enter Name">
+                    <input type="text" id="text4" placeholder="Enter Text On Cake">
+                    <select id="kg4">
+                        <option>0.5 KG</option>
+                        <option>1 KG</option>
+                        <option>2 KG</option>
+                    </select>
+                    <button class="order-btn" onclick="sendOrder('Cheese Cake', name4.value, text4.value, kg4.value)">Order Now</button>
+                </div>
+            </div>
+
+            <!-- Cake 5 -->
+            <div class="card">
+                <img src="choco truffle cake.png" alt="Choco Truffle">
+                <h3>Choco Truffle Cake</h3>
+                <p>Luxury choco truffle cake special.</p>
+                <div class="price">₹950 / KG</div>
+                <div class="order-section">
+                    <input type="text" id="name5" placeholder="Enter Name">
+                    <input type="text" id="text5" placeholder="Enter Text On Cake">
+                    <select id="kg5">
+                        <option>0.5 KG</option>
+                        <option>1 KG</option>
+                        <option>2 KG</option>
+                    </select>
+                    <button class="order-btn" onclick="sendOrder('Choco Truffle Cake', name5.value, text5.value, kg5.value)">Order Now</button>
+                </div>
+            </div>
+
+            <!-- Cake 6 -->
+            <div class="card">
+                <img src="brownie.png" alt="Brownie Cake">
+                <h3>Brownie Cake</h3>
+                <p>Chocolate brownie creamy cake.</p>
+                <div class="price">₹950 / KG</div>
+                <div class="order-section">
+                    <input type="text" id="name6" placeholder="Enter Name">
+                    <input type="text" id="text6" placeholder="Enter Text On Cake">
+                    <select id="kg6">
+                        <option>0.5 KG</option>
+                        <option>1 KG</option>
+                        <option>2 KG</option>
+                    </select>
+                    <button class="order-btn" onclick="sendOrder('Brownie Cake', name6.value, text6.value, kg6.value)">Order Now</button>
+                </div>
+            </div>
+
+            <!-- Cake 7 -->
+            <div class="card">
+                <img src="tea cake.png" alt="Tea Cake">
+                <h3>Tea Cake</h3>
+                <p>Luxury tea cake.</p>
+                <div class="price">₹420 / KG</div>
+                <div class="order-section">
+                    <input type="text" id="name7" placeholder="Enter Name">
+                    <input type="text" id="text7" placeholder="Enter Text On Cake">
+                    <select id="kg7">
+                        <option>0.5 KG</option>
+                        <option>1 KG</option>
+                        <option>2 KG</option>
+                    </select>
+                    <button class="order-btn" onclick="sendOrder('Tea Cake', name7.value, text7.value, kg7.value)">Order Now</button>
+                </div>
+            </div>
+           <!-- Cake 8 -->
+            <div class="card">
+                <img src="dream cake.png" alt="Dream Cake">
+                <h3>Dream Cake</h3>
+                <p>Luxury dream cake.</p>
+                <div class="price">₹950 / KG</div>
+                <div class="order-section">
+                    <input type="text" id="name8" placeholder="Enter Name">
+                    <input type="text" id="text8" placeholder="Enter Text On Cake">
+                    <select id="kg8">
+                        <option>0.5 KG</option>
+                        <option>1 KG</option>
+                        <option>2 KG</option>
+                    </select>
+                    <button class="order-btn" onclick="sendOrder('Dream Cake', name8.value, text8.value, kg8.value)">Order Now</button>
+                </div>
+            </div>
+
+            <!-- Cake 9 -->
+            <div class="card">
+                <img src="black.png" alt="Blackcurrant">
+                <h3>Blackcurrant Cake</h3>
+                <p>Luxury blackcurrant cake special.</p>
+                <div class="price">₹900 / KG</div>
+                <div class="order-section">
+                    <input type="text" id="name9" placeholder="Enter Name">
+                    <input type="text" id="text9" placeholder="Enter Text On Cake">
+                    <select id="kg9">
+                        <option>0.5 KG</option>
+                        <option>1 KG</option>
+                        <option>2 KG</option>
+                    </select>
+                    <button class="order-btn" onclick="sendOrder('Blackcurrant Cake', name9.value, text9.value, kg9.value)">Order Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. LUXURY DECORATIONS SECTION -->
+    <section class="section" id="decorations">
+        <h2 class="section-title">Luxury Decorations 🎈</h2>
+        <p class="section-sub">Beautiful trendy decoration setups</p>
+
+        <div class="decor-grid">
+            <!-- Decoration 1 -->
+            <div class="decor-card">
+                <img src="room.png" alt="Room Decoration">
+                <h3>Birthday Room Decoration</h3>
+                <p>Luxury balloons and lights setup.</p>
+                <div class="order-section">
+                    <input type="text" id="decorName1" placeholder="Enter Name">
+                    <input type="date" id="decorDate1">
+                    <button class="order-btn" onclick="sendDecorOrder('Birthday Room Decoration', decorName1.value, decorDate1.value)">Order Now</button>
+                </div>
+            </div>
+
+            <!-- Decoration 2 -->
+            <div class="decor-card">
+                <img src="romantic.png" alt="Romantic Decoration">
+                <h3>Romantic Decoration</h3>
+                <p>Special surprise couple decoration.</p>
+                <div class="order-section">
+                    <input type="text" id="decorName2" placeholder="Enter Name">
+                    <input type="date" id="decorDate2">
+                    <button class="order-btn" onclick="sendDecorOrder('Romantic Decoration', decorName2.value, decorDate2.value)">Order Now</button>
+                </div>
+            </div>
+
+            <!-- Decoration 3 -->
+            <div class="decor-card">
+                <img src="baby.png" alt="Baby Shower">
+                <h3>Baby Shower Decoration</h3>
+                <p>Luxury baby shower decoration theme.</p>
+                <div class="order-section">
+                    <input type="text" id="decorName3" placeholder="Enter Name">
+                    <input type="date" id="decorDate3">
+                    <button class="order-btn" onclick="sendDecorOrder('Baby Shower Decoration', decorName3.value, decorDate3.value)">Order Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. CUSTOMIZE YOUR CAKE SECTION -->
+    <section class="section" id="custom">
+        <h2 class="section-title">Customize Your Cake 🎨</h2>
+        <p class="section-sub">Design your own dream cake</p>
+
+        <div class="custom-box">
+            <input type="text" id="customName" placeholder="Your Name">
+            <input type="text" id="customText" placeholder="Text On Cake">
+            
+            <select id="customKg">
+                <option>0.5 KG</option>
+                <option>1 KG</option>
+                <option>2 KG</option>
+            </select>
+
+            <select id="customFlavour">
+                <option>Mango</option>
+                <option>Strawberry</option>
+                <option>Blueberry</option>
+                <option>Vanilla</option>
+                <option>Chocolate</option>
+                <option>Pineapple</option>
+                <option>Black forest</option>
+                <option>White forest</option>
+                <option>Black currant</option>
+                <option>Brownie</option>
+                <option>Red velvet</option>
+                <option>Cheese cake</option>
+                <option>Choco truffle</option>
+            </select>
+
+            <label style="font-weight:600;color:#ff4d6d;">📷 Upload Reference Image</label>
+            <input type="file" id="customImage" accept="image/*" style="padding:12px; background:white; border-radius:15px; cursor:pointer;">
+            <p style="font-size:14px; color:#666; margin-top:-8px;">⚠️ After WhatsApp opens, please attach the selected reference image manually.</p>
+
+            <textarea id="customDetails" placeholder="Enter custom cake details"></textarea>
+            <button class="btn" onclick="customOrder()">Submit Custom Order</button>
+        </div>
+    </section>
+
+    <!-- 6. SCAN & PAY SECTION -->
+    <section class="section" id="payment">
+        <h2 class="section-title" style="font-size:32px;">💳 Scan & Pay</h2>
+        <p class="section-sub">Pay securely using Google Pay</p>
+
+        <div class="payment-box">
+            <img src="cake aunty scanner.jpeg" class="qr-img" alt="GPay QR Code">
+            <div class="payment-name">👤 KARUPPASAMY P (PKS RAHAVAN)</div>
+            <div class="payment-number">📱 GPay Number : 9843635457</div>
+            
+            <a href="tel:9843635457" class="payment-btn">💳 Pay via GPay</a>
+            <div class="payment-note">💰 After payment, send the screenshot through WhatsApp for order confirmation.</div>
+            <a href="https://wa.me/919585294667" class="payment-btn">📤 Send Payment Screenshot</a>
+            <div class="payment-support">📞 Support : 9585294667</div>
+        </div>
+    </section>
+
+    <!-- 7. LOCATION SECTION -->
+    <section class="section" id="location">
+        <div class="location-box">
+            <h2>📍 Our Location</h2>
+            <p>
+                582/4 JJ Garden, EB Colony North,<br>
+                Gandhigramam, Karur,<br>
+                Near Puthukkan Kovil.
+            </p>
+            <div class="owner">
+                <img src="cake aunty.png" alt="Owner Portrait">
+                <div>
+                    <h3>Karthika</h3>
+                    <p>Founder & Professional Cake Artist</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER SECTION -->
+    <footer>
+        <img src="karur home bakes.png" alt="Footer Logo" class="footer-logo-img">
+        <h2>Karur's Home bakes</h2>
+        <p>Fresh Homemade Cakes & Luxury Decorations 🎂🎈</p>
+        <div class="socials">
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="https://wa.me/919585294667"><i class="fab fa-whatsapp"></i></a>
+        </div>
+        <p style="margin-top:20px;">© 2026 Karur's Home bakes. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JAVASCRIPT FUNCTIONS -->
+    <script>
+        const WHATSAPP_NUMBER = "919585294667";
+
+        function sendOrder(cake, name, text, kg){
+            let message =
+                "🎂 *Karur Home Bakes Order* %0A%0A" +
+                "👤 *Name :* " + encodeURIComponent(name) + "%0A" +
+                "🍰 *Cake :* " + encodeURIComponent(cake) + "%0A" +
+                "📝 *Cake Text :* " + encodeURIComponent(text) + "%0A" +
+                "⚖️ *Weight :* " + encodeURIComponent(kg);
+
+            window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + message, "_blank");
+        }
+
+        function sendDecorOrder(decoration, name, date){
+            let message =
+                "🎈 *Decoration Order* %0A%0A" +
+                "👤 *Name :* " + encodeURIComponent(name) + "%0A" +
+                "🎉 *Decoration :* " + encodeURIComponent(decoration) + "%0A" +
+                "📅 *Date :* " + encodeURIComponent(date);
+
+            window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + message, "_blank");
+        }
+
+        function customOrder(){
+            let name = document.getElementById('customName').value;
+            let text = document.getElementById('customText').value;
+            let kg = document.getElementById('customKg').value;
+            let flavour = document.getElementById('customFlavour').value;
+            let details = document.getElementById('customDetails').value;
+
+            let message =
+                "🎂 *Custom Cake Order* %0A%0A" +
+                "👤 *Name :* " + encodeURIComponent(name) + "%0A" +
+                "📝 *Cake Text :* " + encodeURIComponent(text) + "%0A" +
+                "⚖️ *Weight :* " + encodeURIComponent(kg) + "%0A" +
+                "🍓 *Flavour :* " + encodeURIComponent(flavour) + "%0A" +
+                "🎨 *Details :* " + encodeURIComponent(details);
+
+            window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + message, "_blank");
+        }
+    </script>
+</body>
+</html>
